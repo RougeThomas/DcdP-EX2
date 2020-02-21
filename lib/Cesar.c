@@ -26,8 +26,15 @@ char* dechiffre_Cesar(char* chiffre, char const cle)
     char decalage = cle - 'a';
 
     while(chiffre[i] != '\0'){
-        if((chiffre[i] >= 'a' && chiffre[i] <= 'z') || (chiffre[i] >= 'A' && chiffre[i] <= 'Z')){
+        if(chiffre[i] >= 'a' && chiffre[i] <= 'z'){
             chiffre[i] = (chiffre[i] - 'a' - decalage)%26 + 'a';
+            if(chiffre[i] < 'a')
+                chiffre[i] += 26;
+        }
+        else if (chiffre[i] >= 'A' && chiffre[i] <= 'Z'){
+            chiffre[i] = (chiffre[i] - 'A' - decalage)%26 + 'A';
+            if(chiffre[i] < 'A')
+                chiffre[i] += 26;
         }
         i++;
     }
