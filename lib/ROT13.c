@@ -10,5 +10,5 @@ char* chiffre_ROT13(char* clair)
 
 char* dechiffre_ROT13(char* chiffre)
 {
-    return dechiffre_Cesar(chiffre, 'a'+13);
+    return chiffre_ROT13(chiffre);
 }
